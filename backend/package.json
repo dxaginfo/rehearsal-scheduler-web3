@@ -1,0 +1,1 @@
+{"name":"rehearsal-backend","version":"1.0.0","main":"index.js","dependencies":{"express":"^4.18.0","pg":"^8.0.0","jsonwebtoken":"^9.0.0"},"scripts":{"start":"node index.js"}}

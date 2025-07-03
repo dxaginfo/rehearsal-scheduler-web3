@@ -1,0 +1,24 @@
+version: '3.7'
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: rehearsal
+      POSTGRES_USER: rehearsal
+      POSTGRES_PASSWORD: rehearsal
+    ports:
+      - "5432:5432"
+  backend:
+    build: ./backend
+    ports:
+      - "3001:3001"
+    environment:
+      DATABASE_URL: postgres://rehearsal:rehearsal@postgres:5432/rehearsal
+    depends_on:
+      - postgres
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
